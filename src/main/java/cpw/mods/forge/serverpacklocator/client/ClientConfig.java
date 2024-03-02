@@ -54,6 +54,8 @@ public class ClientConfig {
 
         private String remoteServer;
 
+        private List<String> excludedModIds = new ArrayList<>();
+
         @SpecNotNull
         private List<DownloadedServerContent> downloadedServerContent = new ArrayList<>();
 
@@ -67,6 +69,10 @@ public class ClientConfig {
 
         public List<DownloadedServerContent> getDownloadedServerContent() {
             return downloadedServerContent;
+        }
+
+        public List<String> getExcludedModIds() {
+            return excludedModIds;
         }
     }
 

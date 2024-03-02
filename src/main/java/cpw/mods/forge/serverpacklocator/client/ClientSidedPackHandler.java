@@ -51,7 +51,8 @@ public class ClientSidedPackHandler extends SidedPackHandler<ClientConfig> {
 
     @Override
     protected List<IModLocator.ModFileOrException> processModList(List<IModLocator.ModFileOrException> scannedMods) {
-        return scannedMods;
+        var excludedModIds = getConfig().getClient().getExcludedModIds();
+        return scannedMods.stream().filter(modFile -> modFile.file() == null || modFile.file().getModInfos().stream().noneMatch(mod -> excludedModIds.contains(mod.getModId()))).toList();
     }
 
     @Override
