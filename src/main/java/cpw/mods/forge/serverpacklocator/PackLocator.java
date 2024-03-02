@@ -73,7 +73,7 @@ public class PackLocator implements IModLocator
         }
 
         ModAccessor.setStatusLine("ServerPack: " + (successfulDownload ? "loaded" : "NOT loaded"));
-        return finalModList;
+        return serverPackLocator.processModList(finalModList);
     }
 
     private IModFile discoverInternalMod() {
